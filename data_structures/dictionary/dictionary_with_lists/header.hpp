@@ -1,5 +1,12 @@
-#include <list>
+/**
+ * @file header.hpp
+ * @author me, myself and I
+ * @brief descrizione funzioni e metodi
+ * @version 1.0
+ * @date 2023-11-07
+ */
 #include "structs_used.hpp"
+#include <list>
 
 /**
  * @brief inserisce un nuovo elemento all'interno della lista, in testa!
@@ -13,13 +20,14 @@ void insert(L list, int k, int v);
 
 /**
  * @brief cerca un particolare record riferito dalla chiave k
-          l'inserimento in testa mi assicura che il primo elemento che trovo è il più aggiornato (nonostante i duplicato)
+          l'inserimento in testa mi assicura che il primo elemento che trovo è
+ il più aggiornato (nonostante i duplicato)
  * @post rende il valore associato a k se presente in L, altrimenti null
- * 
+ *
  * @param list lista di record con puntatore alla testa
  * @param k chiave da cercare
  * @return elem associato alla chiave record se esiste, null altrimenti
- * 
+ *
  */
 elem search(L list, int k);
 
@@ -34,7 +42,7 @@ void delete_(L list, int k);
 
 /**
  * @brief stampa il contenuto di ogni cella dell'array
- * 
+ *
  * @param list lista di record con puntatore alla testa
  */
 void print_list(L list);

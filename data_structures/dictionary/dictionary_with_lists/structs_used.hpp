@@ -1,17 +1,23 @@
+/**
+ * @file structs_used.hpp
+ * @author me, myself and I
+ * @brief strutture dati utilizzate per implementare il dizionario
+ * @version 1.0
+ * @date 2023-11-07
+ */
 
-// struttura dati utilizzata per implementare gli elementi del dizionario
+// elementi dizionario
 struct record {
-    record *next;
-    record *prev;
-    int key;
-    int info;
+  record *next;
+  record *prev;
+  int key;
+  int info;
 };
-typedef struct record * elem;
+typedef struct record *elem;
 
 // lista con un puntatore alla testa
-struct my_list{
-    record *head;
+struct my_list {
+  record *head;
 };
 
-typedef my_list * L;
-
+typedef my_list *L;

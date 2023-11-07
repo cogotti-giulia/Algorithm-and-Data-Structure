@@ -16,6 +16,7 @@ risSX=0 v        1        | hDX
 Prendo le **altezze** dei sotto alberi, calcolo l'altezza dell'albero (massimo tra sotto albero sinistro e destro, più uno che sarebbe l'arco che collega i sotto alberi alla radice). Poi prendo il massimo tra i sotto alberi (risSX e risDX), la differenza delle altezze al nodo radice (valore assoluto di hSX - hDX), e infine calcolo il massimo tra i due valore (che è il t che sto cercando).
 
 ### Codice funzione
+
 ```pseudocode
 t_bilanciato(u)
     if u == NIL
@@ -47,7 +48,7 @@ int t_bilanciato_AUX(pnode u, int *h){
 
         *h = max(hSX, hDX)+1;//altezza albero
         int diff_root = abs(hSX, hDX); //differenza al nodo radice
-        
+
         int t = max(diff_root, max(risSX, risDX));
         return t;
     }
@@ -83,4 +84,4 @@ ora mi chiedo se è vero che T(n) = an-a+2b+d ?= an+b<br>
 -a+b+d = 0 ~> a = b+d<br>
 [per caso base] b+d = c+d quindi a = c+d<br>
 
-ma allora **T(n)=(c+d)n + c = Teta(n)** ! 
+ma allora **T(n)=(c+d)n + c = Teta(n)** !

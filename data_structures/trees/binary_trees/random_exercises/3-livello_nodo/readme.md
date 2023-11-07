@@ -1,5 +1,5 @@
 Sia T un albero binario. Il **livello** di un nodo è la sua distanza dalla radice.<br>
-Dato k>=0, scrivere una funzione efficiente che stampa le chiavi contenute nei nodi a livello k.
+Dato k>=0, scrivere un algoritmo che preso in ingresso T e un intero k >= 0 stampa le chiavi contenute nei nodi di T a livello k, procedendo da sinistra verso destra.
 
 ```
         1           lvl. 0
@@ -92,10 +92,10 @@ Purtroppo non posso usare il master theorem :(, quindi userò l'**albero delle r
 
 ```
         d                          d
-      /   \         ~>           /   \     
+      /   \         ~>           /   \
   T(k-1)  T(k-1)            d             d
                           /   \         /   \
-                      T(k-1) T(k-1)  T(k-1) T(k-1) 
+                      T(k-1) T(k-1)  T(k-1) T(k-1)
 
 
 continuando ad espandere l'albero avrò
@@ -111,12 +111,12 @@ continuando ad espandere l'albero avrò
     d    ...    d     ...   d           ~ 2^(k-1)d -> T(k-(k-1))
   /   \       /   \       /   \
 T(0) T(0)   T(0) T(0)   T(0) T(0)       ~ T(1)
-  |    |      |    |      |    |  
+  |    |      |    |      |    |
   c    c      c    c      c    c        ~ 2*2^(k-1)c = 2^c
 
       k-1                    k-1
-T(k) = E (2^i)*d + (2^k)*c = d* E 2^i + (2^k)*c = 
+T(k) = E (2^i)*d + (2^k)*c = d* E 2^i + (2^k)*c =
       i=0                    i=0
-     = d((2^(k-1+1)-1)/2-1) + (2^k)*c = d*(2^k -1)+(2^k)*c = 
+     = d((2^(k-1+1)-1)/2-1) + (2^k)*c = d*(2^k -1)+(2^k)*c =
      = Teta(2^k)
 ```

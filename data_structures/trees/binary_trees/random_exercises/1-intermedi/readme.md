@@ -3,12 +3,11 @@ sotto albero di cui u è radice, è uguale alla somma delle chiavi contenute nei
 percorso che collega u alla radice dell'albero (u escluso).
 Scrivere una funzione efficiente che calcoli il numero di nodi intermedi e calcolarne la complessità.
 
-
 ```
         17 (root)
-      /    \  
-(v) 17     0 (u) 
-          /   \       
+      /    \
+(v) 17     0 (u)
+          /   \
          7     9
         /
        1
@@ -21,7 +20,7 @@ Scrivere una funzione efficiente che calcoli il numero di nodi intermedi e calco
 17 = 17 somma nodi nel sotto albero di v (v.key=1)
 => v è intermedio
 
-~> #intermedi = 2 
+~> #intermedi = 2
 ```
 
 Le informazioni mi arrivano dai discendenti, quindi mi conviene fare un visita in post order!
@@ -81,7 +80,6 @@ int intermedi_AUX(pnode u, int sumPercorso, int *sumKeys){
 }
 ```
 
-
 #### Complessità
 
 ```
@@ -111,4 +109,4 @@ ora mi chiedo se è vero che T(n) = an-a+2b+d ?= an+b<br>
 -a+b+d = 0 ~> a = b+d<br>
 [per caso base] b+d = c+d quindi a = c+d<br>
 
-ma allora **T(n)=(c+d)n + c = Teta(n)** ! 
+ma allora **T(n)=(c+d)n + c = Teta(n)** !
