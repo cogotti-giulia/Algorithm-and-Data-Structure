@@ -26,7 +26,63 @@ Scrivere una funzione efficiente che calcoli il numero di nodi intermedi e calco
 
 Le informazioni mi arrivano dai discendenti, quindi mi conviene fare un visita in post order!
 
-**Complessità**
+#### Codice funzione
+
+```pseudocode
+intermedi(r)
+    #ris è il numero di nodi intermedi
+    #sumK è la somma delle chiavi nel sotto albero
+    <ris, sumK> = intermedi_AUX(r, 0);
+    return ris;
+
+#sumpercorso somma lungo il percorso che va dalla radice a u
+intermedi_AUX(u, sumPercorso)
+    if u == NIL
+        return <0, 0>
+    else
+        <risSX, sumkSX> = intermedi_AUX(u.left, sumPercorso+1);
+        <risDX, sumkDX> = intermedi_AUX(u.right, sumPercorso+1);
+
+        sum = sumkSX + sumkDX + u.key;
+        if(sum == sumPercorso)
+            return <risSX+risDX+1, sum>
+        else
+            return <risSX+risSX, sum>
+
+
+```
+
+```c++
+int intermedi(pnode r){
+    int sumKeys = 0; //somma chiavi sotto albero
+    return intermedi_AUX(r, 0, &sumKeys);
+}
+
+int intermedi_AUX(pnode u, int sumPercorso, int *sumKeys){
+    if(u == nullptr){
+        *sumKeys = 0;
+        return 0;
+    }else{
+        int sumKeysSX = *sumKeys;
+        int risSX = intermedi_AUX(u->left, sumPercorso + u->key, &sumKeysSX);
+
+        int sumKeysDX = *sumKeys;
+        int risDX = intermedi_AUX(u->right, sumPercorso + u->key, &sumKeysDX);
+
+        int sum = sumKeysDX+sumKeysSX+u->key;
+        if(sum == sumPercorso){
+            *sumKeys = sum;
+            return risSX + risDX +1;
+        }else{
+            *sumKeys = sum;
+            return risSX + risDX;
+        }
+    }
+}
+```
+
+
+#### Complessità
 
 ```
         --- c                 se n=0
