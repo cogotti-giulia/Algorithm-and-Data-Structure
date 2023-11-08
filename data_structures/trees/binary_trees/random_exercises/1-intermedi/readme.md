@@ -1,3 +1,5 @@
+## Esercizio
+
 Un albero binario è detto intermedio se la somma delle chiavi contenuta nei nodi del
 sotto albero di cui u è radice, è uguale alla somma delle chiavi contenute nei nodi sul
 percorso che collega u alla radice dell'albero (u escluso).
@@ -25,7 +27,7 @@ Scrivere una funzione efficiente che calcoli il numero di nodi intermedi e calco
 
 Le informazioni mi arrivano dai discendenti, quindi mi conviene fare un visita in post order!
 
-#### Codice funzione
+### Codice funzione
 
 ```pseudocode
 intermedi(r)
@@ -80,7 +82,7 @@ int intermedi_AUX(pnode u, int sumPercorso, int *sumKeys){
 }
 ```
 
-#### Complessità
+#### Analisi complessità
 
 ```
         --- c                 se n=0

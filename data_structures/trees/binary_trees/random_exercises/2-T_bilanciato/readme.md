@@ -1,3 +1,5 @@
+## Esercizio
+
 Un albero si dice T bilanciato se per ogni nodo vale la seguente proprietà: _"le altezze dei sotto alberi radicati nei suoi due figli differiscono per al più T unità"_.<br>
 Dato un albero binario, scrivere una funzione efficiente che restituisca il minimo valore t per cui l'albero risulti t bilanciato.
 
@@ -55,7 +57,7 @@ int t_bilanciato_AUX(pnode u, int *h){
 }
 ```
 
-### Complessità
+#### Analisi complessità
 
 ```
         --- c                 se n=0

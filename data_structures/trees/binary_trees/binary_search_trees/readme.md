@@ -1,4 +1,4 @@
-### Binary Search Tree [ BST ]
+## Binary Search Tree [ BST ]
 
 sia x un nodo in un albero binario di ricerca:<br>
 ~ se y è un nodo nel sotto albero _sinistro_ di x allora **y.key <= x.key** <br>
@@ -12,7 +12,7 @@ sia x un nodo in un albero binario di ricerca:<br>
          5   9
 ```
 
-#### Analisi complessità
+### Analisi complessità
 
 Le operazioni sugli _insiemi dinamici_:
 

@@ -1,3 +1,5 @@
+## Esercizio
+
 Sia T un albero binario. Il **livello** di un nodo è la sua distanza dalla radice.<br>
 Dato k>=0, scrivere un algoritmo che preso in ingresso T e un intero k >= 0 stampa le chiavi contenute nei nodi di T a livello k, procedendo da sinistra verso destra.
 
@@ -40,7 +42,7 @@ void stampa_livello(pnode u, int k){
 }
 ```
 
-### Complessità
+### Analisi complessità
 
 #### Rispetto a n = numero nodi nell'albero
 

@@ -1,3 +1,5 @@
+## Esercizio
+
 Dati due nodi u e v appartenenti a un albero con _profondità_, il **minimo antenato comune(MAC)** è l'antenato comune di u e v che si trova più lontano dalla radice.
 
 ```
@@ -18,7 +20,7 @@ La radice è antenato comune a tutti i nodi!
 
 Dato che ho la profondità, parto dai due nodi e mi allineo fino a quando non raggiungono la stessa profondità. Se sono lo stesso nodo ho trovato l'antenato comune, altrimenti continuo a salire e al più otterrò la radice come antenato comune!
 
-# Codice funzione
+### Codice funzione
 
 ```pseudocode
 mac(u, v)
@@ -62,7 +64,7 @@ pnode mac(pnode u, pnode v){
 }
 ```
 
-### Complessità
+### Analisi complessità
 
 ```
 T(n) = O(h)
