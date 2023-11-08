@@ -1,4 +1,10 @@
-
+/**
+ * @file structs_used.hpp
+ * @author me, myself and I
+ * @brief strutture dati utilizzate per rappresentare l'albero
+ * @version 1.0
+ * @date 2023-11-08
+ */
 struct Node {
   int key;
   char col;

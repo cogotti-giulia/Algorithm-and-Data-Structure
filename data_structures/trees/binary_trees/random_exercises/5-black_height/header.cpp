@@ -1,4 +1,10 @@
-
+/**
+ * @file header.cpp
+ * @author me, myself and I
+ * @brief implementazione metodi e funzioni
+ * @version 1.0
+ * @date 2023-11-08
+ */
 #include "header.hpp"
 #include <algorithm>
 

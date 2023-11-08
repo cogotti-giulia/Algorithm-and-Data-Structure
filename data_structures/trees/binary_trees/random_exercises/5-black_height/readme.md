@@ -25,7 +25,6 @@ struct Node {
 typedef Node* PNode;
 ```
 
-
 ```
             R
           /   \
@@ -35,6 +34,8 @@ typedef Node* PNode;
 
 altezza nera radice: 1
 ```
+
+> mmh, non sono certa di aver capito bene cosa intende nel testo ma spero abbia senso ciò che ho fatto
 
 ### Codice funzione
 
