@@ -7,19 +7,19 @@
  */
 #include "header.hpp"
 
-bool is_k_ario(pnode u, int k) {
+bool is_k_ario(pnodeG u, int k) {
   int h = -1;
   return is_k_ario_AUX(u, k, &h);
 }
 
-bool is_k_ario_AUX(pnode u, int k, int *h) {
+bool is_k_ario_AUX(pnodeG u, int k, int *h) {
   if (u == nullptr) {
     *h = -1;
     return true;
   } else {
     int hF = -1;   // non so ancora nulla
     int grado = 0; // figli del nodo
-    pnode figlio = u->left_child;
+    pnodeG figlio = u->left_child;
     bool ris = true; // assumo sia k ario completo
 
     while (figlio != nullptr && ris) {
@@ -49,21 +49,21 @@ T crea_albero() {
   pnode x = new node(-1, nullptr, y);
   */
 
-  pnode xyz = new node(1, /*x*/nullptr, nullptr);
+  pnodeG xyz = new node(1, /*x*/nullptr, nullptr);
 
-  pnode c = new node(-9, nullptr, nullptr);
-  pnode b = new node(12, nullptr, c);
-  pnode a = new node(17, nullptr, b);
+  pnodeG c = new node(-9, nullptr, nullptr);
+  pnodeG b = new node(12, nullptr, c);
+  pnodeG a = new node(17, nullptr, b);
 
-  pnode abc = new node(3, a, xyz);
+  pnodeG abc = new node(3, a, xyz);
 
-  pnode r = new node(-9, nullptr, nullptr);
-  pnode q = new node(12, nullptr, r);
-  pnode p = new node(17, nullptr, q);
+  pnodeG r = new node(-9, nullptr, nullptr);
+  pnodeG q = new node(12, nullptr, r);
+  pnodeG p = new node(17, nullptr, q);
 
-  pnode pqr = new node(3, p, abc);
+  pnodeG pqr = new node(3, p, abc);
 
-  pnode groot = new node(0, pqr, nullptr);
+  pnodeG groot = new node(0, pqr, nullptr);
 
   t->root = groot;
   return t;

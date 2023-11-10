@@ -13,7 +13,7 @@ struct node {
   node(int k, node *lc = nullptr, node *rs = nullptr)
       : key{k}, left_child{lc}, right_sibling{rs} {};
 };
-typedef node *pnode;
+typedef node *pnodeG;
 
 struct tree {
   node *root;

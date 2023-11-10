@@ -14,7 +14,7 @@
  * @param k grado dei nodi
  * @return true se l'albero è k ario completo, false altrimenti
  */
-bool is_k_ario(pnode u, int k);
+bool is_k_ario(pnodeG u, int k);
 
 /**
  * @brief funzione ausiliaria per verificare se l'albero ì k ario completo
@@ -24,6 +24,6 @@ bool is_k_ario(pnode u, int k);
  * @param h altezza albero
  * @return true se l'albero è k ario completo, false altrimenti
  */
-bool is_k_ario_AUX(pnode u, int k, int *h);
+bool is_k_ario_AUX(pnodeG u, int k, int *h);
 
 T crea_albero();

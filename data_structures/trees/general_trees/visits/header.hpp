@@ -19,7 +19,7 @@ T crea_albero_lc_rsib();
  *
  * @param u radice dell'albero
  */
-void visita_preorder_DFS(pnode u);
+void visita_preorder_DFS(pnodeG u);
 
 /**
  * @brief chiamata ricorsiva al figlio SX, visita la radice, chiamata ricorsiva
@@ -27,7 +27,7 @@ void visita_preorder_DFS(pnode u);
  *
  * @param u radice dell'albero
  */
-void visita_in_order_simmetrica(pnode u);
+void visita_in_order_simmetrica(pnodeG u);
 // TODO: implementare visita in order
 
 /**
@@ -35,11 +35,11 @@ void visita_in_order_simmetrica(pnode u);
  *
  * @param u radice dell'albero
  */
-void visita_post_order(pnode u);
+void visita_post_order(pnodeG u);
 
 /**
  * @brief tramite una coda fifo visita l'albero dal livello zero al livello h
  *
  * @param u radice dell'albero
  */
-void visita_in_ampiezza_BFS(pnode u);
+void visita_in_ampiezza_BFS(pnodeG u);

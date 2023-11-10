@@ -12,8 +12,8 @@
  * @pre u.key != 0
  * @param u radice dell'albero
  */
-void trasforma(pnode u);
+void trasforma(pnodeG u);
 
 T crea_albero();
 
-void visita_preorder_DFS(pnode u);
+void visita_preorder_DFS(pnodeG u);
