@@ -6,14 +6,17 @@
  * @date 2023-11-14
  */
 #include "structs_used.hpp"
+#include <array>
+#include <cstddef>
 
 /**
- * @brief ordina il vettore utilizzando l'algoritmo di insertion sort, mantiene
- * una porzione di k elementi già ordinati ed estende la soluzione al k+1 esimo
- * elemento
- * @post ordina arr[0 ... arr.size-1]
+ * @brief ordina l'array di input
+ *
+ * @tparam n size dell'array
  * @param arr array da ordinare
  */
-void insertion_sort(my_array arr);
+template <std::size_t n> 
+void insertion_sort(std::array<my_elem, n> arr);
 
-void stampa_array(my_array arr);
+template <std::size_t n> 
+void stampa_array(std::array<int, n> arr);

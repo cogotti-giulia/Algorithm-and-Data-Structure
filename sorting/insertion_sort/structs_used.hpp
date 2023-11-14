@@ -1,17 +1,22 @@
 /**
  * @author me, myself and I
- * @brief strutture dati utilizzate per implementare l'array
+ * @brief strutture dati utilizzate per implementare l'array in modo da avere
+ * anche dei dati satellite collegati alla chiave
  * @version 1.0
  * @date 2023-11-14
  */
 
-// creo una struct solo per portarmi sempre dietro la size, lo so, avrei potuto
-// usare vector o array ma va bene anche così per quel che ci devo fare
-struct array {
-  int *key;
-  int size;
+struct elem {
+  int key;
+  char satellite;
 
-  array(int *a, int n) : key{a}, size{n} {};
+  elem(int k, char s) : key{k}, satellite{s} {};
+
+  int get_key() { return key; }
+  void set_key(int k) { key = k; }
+
+  char get_satellite() { return satellite; }
+  void set_satellite(int s) { satellite = s; }
 };
 
-typedef array *my_array;
+typedef elem *my_elem;

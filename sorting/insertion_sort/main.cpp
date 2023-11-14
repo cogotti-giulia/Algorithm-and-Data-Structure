@@ -6,12 +6,12 @@
  * @date 2023-11-14
  */
 #include "header.cpp"
+#include <array>
 
 int main() {
-  int n = 5;
-  int a[] = {5, 2, 7, 3, 1};
-
-  my_array arr = new array(a, n);
+  std::array<my_elem, 6> arr = {new elem(5, 'A'), new elem(2, 'B'),
+                                new elem(7, 'C'), new elem(3, 'D'),
+                                new elem(1, 'E'), new elem(2, 'F')};
 
   stampa_array(arr);
 

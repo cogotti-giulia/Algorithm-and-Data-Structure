@@ -6,29 +6,38 @@
  * @date 2023-11-14
  */
 #include "header.hpp"
+#include <array>
+#include <cstddef>
 #include <iostream>
 
 //! T(n) = Teta(n^2) nel caso peggiore
-void insertion_sort(my_array arr) {
+
+template <std::size_t n> void insertion_sort(std::array<my_elem, n> arr) {
   // inizio dall'elemento uno
   // l'elemento in posizione zero si trova già nella porzione ordinata del
   // vettore
-  for (int j = 1; j < arr->size; j++) { //?eseguito n-1 volte
-    int key = arr->key[j];
+  for (int j = 1; j < arr.size(); j++) { //?eseguito n-1 volte
+    int key = arr.at(j)->get_key();
+    char satellite = arr.at(j)->get_satellite();
+
     int i = j - 1;
     // sposta i valori lasciando un "buco" nel posto in cui inserire l'elemento
     // con chiave key
-    while (i >= 0 && arr->key[i] > key) { //?eseguito j-1 volte
-      arr->key[i + 1] = arr->key[i];
+    while (i >= 0 && arr.at(i)->get_key() > key) { //?eseguito j-1 volte
+      arr.at(i + 1)->set_key(arr.at(i)->get_key());
+      arr.at(i + 1)->set_satellite(arr.at(i)->get_satellite());
+
       i = i - 1;
     }
-    arr->key[i + 1] = key;
+    arr.at(i + 1)->set_key(key);
+    arr.at(i + 1)->set_satellite(satellite);
   }
 }
 
-void stampa_array(my_array arr) {
-  for (int i = 0; i < arr->size; i++)
-    std::cout << arr->key[i] << " ";
+template <std::size_t n> void stampa_array(std::array<my_elem, n> arr) {
+  for (int i = 0; i < arr.size(); i++)
+    std::cout << arr.at(i)->get_key() << ":" << arr.at(i)->get_satellite()
+              << " ";
 
   std::cout << std::endl;
 }
