@@ -1,4 +1,4 @@
-## Algorithm and Data Structure
+## Algorithms and Data Structures
 
 I don't know what I'm doing, I'm just trying to understand something until I pass my exam. :(
 
