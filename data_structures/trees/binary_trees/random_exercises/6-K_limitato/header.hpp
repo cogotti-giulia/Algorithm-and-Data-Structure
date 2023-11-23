@@ -2,8 +2,8 @@
  * @file header.hpp
  * @author me, myself and I
  * @brief definizione metodi e funzioni
- * @version 1.0
- * @date 2023-11-09
+ * @version 1.1
+ * @date 2023-11-23
  */
 #include "structs_used.hpp"
 
@@ -28,4 +28,10 @@ bool k_limitato(pnode u, int k);
  */
 bool k_limitato_AUX(pnode u, int k, int *sum);
 
-T crea_albero();
+/**
+ * @brief costruisce un albero binario a partire dal vettore dei padri
+ *
+ * @param vet_padri vettore dei padri
+ * @return radice dell'albero
+ */
+pnode crea_albero(parr vet_padri);

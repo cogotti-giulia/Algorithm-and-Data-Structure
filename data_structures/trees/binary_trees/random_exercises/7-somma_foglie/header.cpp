@@ -2,12 +2,13 @@
  * @file header.cpp
  * @author me, myself and I
  * @brief implementazione metodi e funzioni
- * @version 1.0
+ * @version 1.1
  * @date 2023-11-23
  */
 #include "header.hpp"
 #include <iostream>
 #include <queue>
+#include <unordered_map>
 
 int somma_foglie(T tree) {
   int sum = 0;
@@ -74,27 +75,46 @@ void visita_in_ampiezza(pnode u) {
   }
 }
 
-T crea_albero() {
-  T t = new tree();
+pnode crea_albero(parr vet_padri) {
+  int n = vet_padri->size; // numero di nodi
+  // crea una mappa vuota
+  std::unordered_map<int, pnode> map;
 
-  pnode n = new node(9);
-  pnode m = new node(3);
+  // crea un nuovo nodo per ogni info del padre e la mette nella mappa
+  for (int i = 0; i < n; i++)
+    map[i] = new node(vet_padri->info[i]);
 
-  pnode l = new node(1, m, n);
+  pnode root = nullptr; // radice
 
-  pnode i = new node(4, nullptr, l);
+  // scorre tutte le celle
+  for (int i = 0; i < n; i++) {
+    int index_parent = vet_padri->parent[i]; // indice del padre
+    char posi_child = vet_padri->child_position[i];
 
-  pnode h = new node(-2, i, nullptr);
+    pnode nuovo = map[i]; // nodo corrente
 
-  pnode g = new node(2);
-  pnode f = new node(7);
+    // se è -1 allora è la radice
+    if (index_parent == -1) {
+      root = nuovo;
+    } else {
+      // prende il padre del nodo corrente, tramite la mappa
+      pnode padre = map[index_parent];
+      // se ha già un figlio sinistro allora metto il nuovo nodo come figlio
+      // destro, altrimenti come figlio sinistro
 
-  pnode e = new node(10, f, g);
-  pnode d = new node(-1);
-  pnode c = new node(-2, h);
-  pnode b = new node(40, d, e);
-  pnode a = new node(12, b, c);
+      if(posi_child == 'l')
+        padre->left = nuovo;
+    
 
-  t->root = a;
-  return t;
+
+      else if(posi_child == 'r')
+        padre->right = nuovo;
+      /*if (padre->left != nullptr)
+        padre->right = nuovo;
+      else
+        padre->left = nuovo;*/
+    }
+  }
+
+  return root;
 }

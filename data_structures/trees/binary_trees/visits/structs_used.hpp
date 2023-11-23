@@ -2,27 +2,40 @@
  * @file structs_used.hpp
  * @author me, myself and I
  * @brief strutture dati utilizzate per implementare l'albero
- * @version 1.0
- * @date 2023-11-07
+ * @version 1.1
+ * @date 2023-11-23
  */
 
 // realizzazione tramite strutture collegate: puntatore a left e right
-struct node_left_right {
+struct node {
   // node *p; //puntatore al padre
-  node_left_right *left;  // puntatore al figlio sinistro
-  node_left_right *right; // puntatore al figlio destro
-  char key;               // contenuto informativo nodo
+  node *left;  // puntatore al figlio sinistro
+  node *right; // puntatore al figlio destro
+  char key;    // contenuto informativo nodo
 
   // costruttore
-  node_left_right(char k) : key{k}, left{nullptr}, right{nullptr} {}
-  node_left_right(char k, node_left_right *sx, node_left_right *dx)
-      : key{k}, left{sx}, right{dx} {}
+  node(char k, node *sx=nullptr, node *dx=nullptr) : key{k}, left{nullptr}, right{nullptr} {}
 };
-typedef node_left_right *pnode;
+typedef node *pnode;
 
-struct tree_left_right {
-  node_left_right *root;
+struct tree {
+  node *root;
 
-  tree_left_right() : root{nullptr} {};
+  tree() : root{nullptr} {};
 };
-typedef tree_left_right *T;
+typedef tree *T;
+
+/**
+ * @brief struttura per rappresentare il vettore dei padri!
+ *
+ */
+struct vector_parent {
+  int *parent;
+  char *info;
+  char *child_position;
+  int size;
+
+  vector_parent(int *p, char *i, char *c_posi, int s)
+      : parent{p}, info{i}, child_position{c_posi}, size{s} {};
+};
+typedef vector_parent *parr;

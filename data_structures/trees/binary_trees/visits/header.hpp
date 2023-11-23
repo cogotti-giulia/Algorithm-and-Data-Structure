@@ -2,18 +2,20 @@
  * @file header.hpp
  * @author me, myself and I
  * @brief descrizione funzioni e metodi
- * @version 1.0
- * @date 2023-11-07
+ * @version 1.1
+ * @date 2023-11-23
  */
 #include "structs_used.hpp"
 
 // realizzazione tramite strutture collegate: puntatore a left e right
+
 /**
- * @brief restituisce l'albero creato
+ * @brief costruisce un albero binario a partire dal vettore dei padri
  *
- * @return T_left_right
+ * @param vet_padri vettore dei padri
+ * @return radice dell'albero
  */
-T crea_albero();
+pnode crea_albero(parr vet_padri);
 
 /**
  * @brief visita il nodo, poi fa le chiamate ricorsive ai figli SX e DX
@@ -23,8 +25,8 @@ T crea_albero();
 void visita_preorder_DFS(pnode u);
 
 /**
- * @brief chiamata ricorsiva al figlio SX, visita la radice, chiamata ricorsiva
- * al figlio DX
+ * @brief chiamata ricorsiva al figlio SX, visita la radice, chiamata
+ * ricorsiva al figlio DX
  *
  * @param u radice dell'albero
  */

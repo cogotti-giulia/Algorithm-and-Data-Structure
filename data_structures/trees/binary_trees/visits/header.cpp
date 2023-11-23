@@ -2,27 +2,56 @@
  * @file header.cpp
  * @author me, myself and I
  * @brief implementazione funzioni e metodi
- * @version 1.0
- * @date 2023-11-07
+ * @version 1.1
+ * @date 2023-11-23
  */
 #include "header.hpp"
 #include <iostream>
 #include <queue>
+#include <unordered_map>
 
-T crea_albero_sx_dx() {
-  T tree = new tree_left_right();
+pnode crea_albero(parr vet_padri) {
+  int n = vet_padri->size; // numero di nodi
+  // crea una mappa vuota
+  std::unordered_map<int, pnode> map;
 
-  pnode o = new node_left_right('O');
-  pnode r = new node_left_right('R');
-  pnode e = new node_left_right('E');
+  // crea un nuovo nodo per ogni info del padre e la mette nella mappa
+  for (int i = 0; i < n; i++)
+    map[i] = new node(vet_padri->info[i]);
 
-  pnode b = new node_left_right('B', nullptr, o);
-  pnode l = new node_left_right('L', e, r);
+  pnode root = nullptr; // radice
 
-  pnode a = new node_left_right('A', l, b);
+  // scorre tutte le celle
+  for (int i = 0; i < n; i++) {
+    int index_parent = vet_padri->parent[i]; // indice del padre
+    char posi_child = vet_padri->child_position[i];
 
-  tree->root = a;
-  return tree;
+    pnode nuovo = map[i]; // nodo corrente
+
+    // se è -1 allora è la radice
+    if (index_parent == -1) {
+      root = nuovo;
+    } else {
+      // prende il padre del nodo corrente, tramite la mappa
+      pnode padre = map[index_parent];
+      // se ha già un figlio sinistro allora metto il nuovo nodo come figlio
+      // destro, altrimenti come figlio sinistro
+
+      if(posi_child == 'l')
+        padre->left = nuovo;
+    
+
+
+      else if(posi_child == 'r')
+        padre->right = nuovo;
+      /*if (padre->left != nullptr)
+        padre->right = nuovo;
+      else
+        padre->left = nuovo;*/
+    }
+  }
+
+  return root;
 }
 
 void visita_preorder_DFS(pnode u) {
