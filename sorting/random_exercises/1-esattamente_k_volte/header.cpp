@@ -2,7 +2,7 @@
  * @file header.cpp
  * @author me, myself and I
  * @brief implementazione metodi e funzioni
- * @version 1.0
+ * @version 1.1
  * @date 2023-11-26
  */
 #include "header.hpp"
@@ -17,53 +17,51 @@ bool esattamente_k_volte(std::vector<int> *A, int k) {
     my_quick_sort_tri(A, 0, A->size() - 1); //! oscilla tra n log n ed n^2
     stampa_array(*A);
 
-    int i = 0;
     bool found = false;
+
+    int elem = A->at(0);
+    int i = 1;
 
     while (i <= A->size() - k && !found) { //! al più O(n)
 
-      int elem = A->at(i);
-      int k_elem = i + (k - 1); // posizione k esimo elemento partendo da i
+      if (A->at(i) != elem) {
+        elem = A->at(i);
+        int k_elem = i + (k - 1); // posizione k esimo elemento partendo da i
 
-      // se esiste un elemento in posizione i+k
-      if ((k_elem + 1) < A->size()) {
-        // controllo che ci siano k elementi uguali ad A[i] e che l'elemento
-        // successivo a questi k sia diverso dai precedenti
-        if (A->at(k_elem) == elem) {
-          if (A->at((k_elem + 1)) != elem) {
-            found = true;
+        // se esiste un elemento in posizione i+k
+        if ((k_elem + 1) < A->size()) {
+          // controllo che ci siano k elementi uguali ad A[i] e che l'elemento
+          // successivo a questi k sia diverso dai precedenti
+          if (A->at(k_elem) == elem) {
+            if (A->at((k_elem + 1)) != elem) {
+              found = true;
+
+            } else {
+
+              i = k_elem + 1; // vado al k+1 esimo elemento a partire da i,
+                              // perché tanto so già che quei k sono uguali a
+                              // qualcosa che ho già controllato
+            }
+          } else {
+            i++;
+          }
+
+        } else {
+          if (k_elem < A->size()) {
+            // se non esiste un elemento in posizione i+k semplicemente
+            // controllo che ce ne siano k uguali in quanto il k esimo si trova
+            // come ultimo elemento dell'array
+            if (A->at(k_elem) == elem)
+              found = true;
+
+            i = k_elem + 1; // vado al k+1 esimo elemento
 
           } else {
-
-            i = k_elem + 1; // vado al k+1 esimo elemento a partire da i, perché
-                            // tanto so già che quei k sono uguali a qualcosa
-                            // che ho già controllato
-
-            // incremento i finché continuano ad esserci elementi uguali, tanto
-            // so già che di certo saranno più di k e non impatta sulla
-            // complessità perché sto mandando avanti la i che è la stessa i del
-            // ciclo esterno
-            while (i < A->size() && A->at(i) == elem)
-              i++;
+            i++;
           }
-        } else {
-          i++;
         }
-
-      } else {
-        if (k_elem < A->size()) {
-          // se non esiste un elemento in posizione i+k semplicemente controllo
-          // che ce ne siano k uguali in quanto il k esimo si trova come ultimo
-          // elemento dell'array
-          if (A->at(k_elem) == elem)
-            found = true;
-
-          i = k_elem + 1; // vado al k+1 esimo elemento
-
-        } else {
-          i++;
-        }
-      }
+      }else
+        i++;
     }
     return found;
   } else {
