@@ -19,7 +19,7 @@ int main() {
   int parent[6] = {-1, 0, 0, 1, 1, 2};
 
   parr vvv = new vector_parent(parent, info, child_posi, 6);
-  
+
   T t = new tree();
   t->root = crea_albero(vvv);
 
@@ -36,5 +36,39 @@ int main() {
   std::cout << "ampiezza (BFS):\t\t\t";
   visita_in_ampiezza_BFS(t->root);
   std::cout << std::endl;
+  std::cout << std::endl;
+
+  //esame 12-09-2016, esercizio 1
+  /*
+   *            a
+   *          /   \
+   *        b       h
+   *      /   \       \
+   *     c     g       i
+   *      \           /
+   *       d         l
+   *      / \
+   *     e   f
+   * 
+   */
+
+  char info_1[10] = {'a', 'b', 'h', 'c', 'g', 'i', 'd', 'l', 'e', 'f'};
+  char child_posi_1[10] = {'x', 'l', 'r', 'l', 'r', 'r', 'r', 'l', 'l', 'r'};
+  int parent_1[10] = {-1, 0, 0, 1, 1, 2, 3, 5, 6, 6};
+
+  parr vvv_1 = new vector_parent(parent_1, info_1, child_posi_1, 10);
+
+  T t1 = new tree();
+  t1->root = crea_albero(vvv_1);
+
+  std::cout << "*** LEFT and RIGHT IMPLEMENTATION ***" << std::endl;
+  std::cout << "pre order (DFS):\t\t";
+  visita_preorder_DFS(t1->root);
+  std::cout << std::endl;
+  std::cout << "in order (simmetrica):\t";
+  visita_in_order_simmetrica(t1->root);
+  std::cout << std::endl;
+  std::cout << "post order:\t\t\t\t";
+  visita_post_order(t1->root);
   std::cout << std::endl;
 }
