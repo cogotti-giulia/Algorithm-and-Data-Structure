@@ -1,5 +1,10 @@
-
-
+/**
+ * @file header.cpp
+ * @author me, myself and I
+ * @brief implementazione metodi e funzioni
+ * @version 1.0
+ * @date 2023-11-29
+ */
 #include "header.hpp"
 #include <iostream>
 
@@ -15,9 +20,8 @@ void node_childrenSameKey_AUX(pnodeG u, int *ris) {
     // i figli non hanno la stessa chiave perché non esistono quindi ris è zero
     *ris = 0;
   } else {
-    bool is_first_key =
-        true;         // mi serve a capire se mi trovo nel primo child oppure no
-    int key = 0;      // conta i fratelli con la stessa chiave
+    bool is_first_key = true;         // mi serve a capire se mi trovo nel primo child oppure no
+    int tot_same_key = 0;      // conta i fratelli con la stessa chiave
     int grado = 0;    // conta il grado del nodo, quindi il numero di figli
     int k_left_child; // chiave del figlio più a sinistra
 
@@ -37,14 +41,14 @@ void node_childrenSameKey_AUX(pnodeG u, int *ris) {
 
       // se la chiave è uguale a quella del primo figlio incremento key
       if (figlio->key == k_left_child)
-        key++;
+        tot_same_key++;
 
       // vado in ricorsione sul figlio più a sinistra
       node_childrenSameKey_AUX(figlio, ris);
 
       // se il grado coincide con key, quindi se tutti i figli hanno la stessa
       // chiave e mi trovo sul figlio più a destra (ultimo, non ha un fratello)
-      if (grado == key && figlio->right_sibling == nullptr)
+      if (grado == tot_same_key && figlio->right_sibling == nullptr)
         *ris = *ris + 1; // incremento ris
 
       // mi sposto al fratello
