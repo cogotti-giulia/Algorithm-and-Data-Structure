@@ -1,14 +1,15 @@
 /**
  * @file header.cpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief implementazione funzioni e metodi
- * @version 1.0
- * @date 2023-11-07
+ * @version 1.1
+ * @date 2023-11-29
  */
 
 #include "header.hpp"
 #include <iostream>
 #include <queue>
+#include <unordered_map>
 
 int intermedi(pnode r) {
   int sumKeys = 0; // somma chiavi sotto albero
@@ -21,13 +22,14 @@ int intermedi_AUX(pnode u, int sumPercorso, int *sumKeys) {
     *sumKeys = 0;
     return 0;
   } else {
-    int sumKeysSX = *sumKeys;
-    int risSX = intermedi_AUX(u->left, sumPercorso + u->key, &sumKeysSX);
+    int sumKeysSX;
+    int risSX = intermedi_AUX(u->left, sumPercorso+u->key, &sumKeysSX);
 
-    int sumKeysDX = *sumKeys;
-    int risDX = intermedi_AUX(u->right, sumPercorso + u->key, &sumKeysDX);
+    int sumKeysDX;
+    int risDX = intermedi_AUX(u->right, sumPercorso+u->key, &sumKeysDX);
 
     int sum = sumKeysDX + sumKeysSX + u->key;
+
     if (sum == sumPercorso) {
       *sumKeys = sum;
       return risSX + risDX + 1;
@@ -38,19 +40,42 @@ int intermedi_AUX(pnode u, int sumPercorso, int *sumKeys) {
   }
 }
 
-T crea_albero() {
-  T t = new tree();
-  pnode n1 = new node(1, nullptr, nullptr);
-  pnode n7 = new node(7, n1, nullptr);
-  pnode n9 = new node(9, nullptr, nullptr);
+pnode crea_albero(parr vet_padri) {
+  // numero di nodi
+  int n = vet_padri->info.size();
+  // crea una mappa vuota
+  std::unordered_map<int, pnode> map;
+  // crea un nuovo nodo per ogni info del padre e la mette nella mappa
+  for (int i = 0; i < n; i++) {
+    map[i] = new node(vet_padri->info.at(i));
+  }
+  // radice
+  pnode root = nullptr;
+  // scorre tutte le celle
+  for (int i = 0; i < n; i++) {
+    // indice del padre
+    int index_parent = vet_padri->parent.at(i);
+    // nodo corrente
+    pnode nuovo = map.at(i);
+    // posizione del nodo corrente ('l': figlio sinistro, 'r': figlio destro,
+    // 'z': radice)
+    char child_posi = vet_padri->child_position.at(i);
 
-  pnode n0 = new node(0, n7, n9);
-  pnode n17 = new node(17, nullptr, nullptr);
+    // se è -1 allora è la radice
+    if (index_parent == -1) {
+      root = nuovo;
+    } else {
+      // prende il padre del nodo corrente, tramite la mappa
+      pnode padre = map[index_parent];
 
-  pnode r = new node(17, n17, n0);
-
-  t->root = r;
-  return t;
+      // se è 'l' lo attacca come figlio sinistro
+      if (child_posi == 'l')
+        padre->left = nuovo;
+      else if (child_posi == 'r') // altrimenti come figlio destro
+        padre->right = nuovo;
+    }
+  }
+  return root;
 }
 
 void visita_in_ampiezza_BFS(pnode u) {

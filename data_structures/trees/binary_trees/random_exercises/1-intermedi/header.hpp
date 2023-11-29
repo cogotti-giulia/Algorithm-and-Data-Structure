@@ -1,13 +1,13 @@
 /**
  * @file header.hpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief descrizione funzioni e metodi
- * @version 1.0
- * @date 2023-11-07
+ * @version 1.1
+ * @date 2023-11-29
  */
 #include "structs_used.hpp"
 
-T crea_albero();
+pnode crea_albero(parr vet_padri);
 
 /**
  * @brief conta il numero di nodi intermedi presenti nell'albero radicato in r

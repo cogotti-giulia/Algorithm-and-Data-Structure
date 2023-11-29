@@ -1,28 +1,28 @@
 /**
  * @file main.cpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief test
- * @version 1.0
- * @date 2023-11-28
+ * @version 1.1
+ * @date 2023-11-29
  */
 #include "header.cpp"
 
 int main() {
-  int info[8] = {5, 2, -1, 3, -10, 12, -8, 1};
-  int parent[8] = {-1, 0, 0, 1, 1, 2, 2, 5};
-  char child_posi[8] = {'x', 'l', 'r', 'l', 'r', 'l', 'r', 'l'};
-  parr vet_parent = new vector_parent(parent, info, child_posi, 8);
+  std::vector<int> info = {5, 2, -1, 3, -10, 12, -8, 1};
+  std::vector<int> parent = {-1, 0, 0, 1, 1, 2, 2, 5};
+  std::vector<char> child_posi = {'z', 'l', 'r', 'l', 'r', 'l', 'r', 'l'};
+  parr vet_parent = new vector_parent(parent, info, child_posi);
 
-  T t_normal = new tree();
-  t_normal->root = crea_albero(vet_parent);
+  T t = new tree();
+  t->root = crea_albero(vet_parent);
 
   std::cout << "DFS: ";
-  visita_dfs(t_normal->root);
+  visita_dfs(t->root);
   std::cout << std::endl;
 
   std::cout << "... aggiungendo figli ... "<<std::endl;
-  aggiungi_figli(t_normal->root);
+  aggiungi_figli(t->root);
 
   std::cout << "DFS: ";
-  visita_dfs(t_normal->root);
+  visita_dfs(t->root);
 }

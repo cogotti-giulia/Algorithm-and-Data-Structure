@@ -1,22 +1,22 @@
 /**
  * @file main.cpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief test somma chiavi su un albero binario
- * @version 1.1
- * @date 2023-11-23
+ * @version 1.2
+ * @date 2023-11-29
  */
 #include "header.cpp"
 #include <iostream>
 
 int main() {
 
-  int parent[11] = {-1, 0, 0, 1, 1, 2, 4, 4, 5, 8, 8};
-  int info[11] = {12, 40, -2, -1, 10, 4, 7, 2, 1, 3, 9};
-  char child_posi[11] = {'x', 'l', 'r', 'l', 'r', 'l', 'l', 'r', 'r', 'l', 'r'};
-  parr vvv = new vector_parent(parent, info, child_posi, 11);
+  std::vector<int> info = {-1, 0, 0, 1, 1, 2, 4, 4, 5, 8, 8};
+  std::vector<int> parent = {-1, 0, 0, 1, 1, 2, 4, 4, 5, 8, 8};
+  std::vector<char> child_posi = {'x', 'l', 'r', 'l', 'r', 'l', 'l', 'r', 'r', 'l', 'r'};
+  parr vet_parent = new vector_parent(parent, info, child_posi);
 
   T t = new tree();
-  t->root = crea_albero(vvv);
+  t->root = crea_albero(vet_parent);
 
   std::cout << "Visita a livelli (le foglie hanno una F davanti)" << std::endl;
   visita_in_ampiezza(t->root);
