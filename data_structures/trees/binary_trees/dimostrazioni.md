@@ -41,7 +41,7 @@ an-a+2b-an-b +d= 0<br>
 
 [dal caso base] b + d = c + d
 
-ma allora T(n) = (c+d)n + d e quindi **T(n) = Teta(n)**
+ma allora T(n) = (c+d)n + c e quindi **T(n) = Teta(n)**
 
 ## Alberi binari di ricerca (BST)
 

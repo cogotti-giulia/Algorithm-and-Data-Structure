@@ -55,21 +55,6 @@ vettore padri ~ tre campi
 - info            | a | b | c | d | e | f | g |
 - parent          |-1 | 0 | 0 | 1 | 1 | 2 | 4 |
 - child_position  |'z'|'l'|'r'|'l'|'r'|'r'|'l'|
-
-Alberi generali
-
-            (a)0
-          /   |  \
-      (b)1  (c)2 (d)3
-      /  \        /
-   (e)4 (f)5   (g)6
-              /   \
-            (h)7 (i)8
-
-vettore padri ~ due campi
-                    0   1   2   3   4   5   6   7   8
-- info            | a | b | c | d | e | f | g | h | i |
-- parent          |-1 | 0 | 0 | 0 | 1 | 1 | 3 | 6 | 6 |
 ```
 
 
@@ -78,7 +63,6 @@ Contiene i seguenti campi
 - parent: vettore di interi contente l'indice della posizione in cui si trova il padre del nodo i
 - info: vettore contenente le chiavi dei nodi in posizione i (-1: radice, non ha un padre!)
 - child_position: vettore di caratteri per rappresentare la posizione del nodo i ('l': figlio sinistro, 'r': figlio destro, 'z': radice che non ha padre)
-- size: dimensione dei vettori (numero di nodi dell'albero)
 
 ```c++
 struct vector_parent {

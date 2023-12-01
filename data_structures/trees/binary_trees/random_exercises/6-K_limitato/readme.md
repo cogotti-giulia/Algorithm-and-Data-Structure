@@ -97,5 +97,5 @@ mi chiedo se è vero che T(n)=2b+an-a+d **?=** an+b<br>
 -a+b+d = 0 ~> a = b+d<br>
 [per caso base] b+d = c+d, ma allora a = c+d<br>
 
-quindi T(n) = (c+d)n + d, dunque concludo che **T(n) = Teta(n)**<br>
+quindi T(n) = (c+d)n + c, dunque concludo che **T(n) = Teta(n)**<br>
 _(potrebbe anche essere un O(n) dato che appena trovo qualcosa che mi contraddice rendo false e basta)_
