@@ -1,10 +1,11 @@
 /**
  * @file structs_used.hpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief strutture dati utilizzate per rappresentare l'albero
- * @version 1.0
- * @date 2023-11-08
+ * @version 1.1
+ * @date 2023-12-01
  */
+#include <vector>
 struct node {
   char key;
   node *left_child;
@@ -21,3 +22,14 @@ struct tree {
   tree() : root{nullptr} {};
 };
 typedef tree *T;
+
+struct vector_parent {
+  std::vector<int> parent;
+  std::vector<char> info; 
+  std::vector<bool> is_left_child;
+
+  vector_parent(std::vector<int> p, std::vector<char> i,
+                std::vector<bool> is_lfc)
+      : parent{p}, info{i}, is_left_child{is_lfc} {};
+};
+typedef vector_parent *parrG;

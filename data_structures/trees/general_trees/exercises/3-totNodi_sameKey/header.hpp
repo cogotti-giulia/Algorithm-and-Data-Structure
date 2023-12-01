@@ -1,9 +1,9 @@
 /**
  * @file header.hpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief definizione metodi e funzioni
  * @version 1.0
- * @date 2023-11-29
+ * @date 2023-12-01
  */
 
 #include "structs_used.hpp"
@@ -26,4 +26,6 @@ int node_childrenSameKey(pnodeG u);
 void node_childrenSameKey_AUX(pnodeG u, int *ris);
 
 void visita_post_order(pnodeG u);
-T crea_albero();
+
+pnodeG crea_albero(parrG vet_padri);
+

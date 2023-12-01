@@ -1,9 +1,9 @@
 /**
  * @file header.hpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief definizione metodi e funzioni
- * @version 1.0
- * @date 2023-11-08
+ * @version 1.1
+ * @date 2023-12-01
  */
 #include "structs_used.hpp"
 
@@ -26,4 +26,4 @@ bool is_k_ario(pnodeG u, int k);
  */
 bool is_k_ario_AUX(pnodeG u, int k, int *h);
 
-T crea_albero();
+pnodeG crea_albero(parrG vet_padri);

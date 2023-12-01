@@ -1,9 +1,9 @@
 /**
  * @file header.hpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief definizione metodi e funzioni
- * @version 1.0
- * @date 2023-11-08
+ * @version 1.1
+ * @date 2023-12-01
  */
 #include "structs_used.hpp"
 
@@ -14,6 +14,6 @@
  */
 void trasforma(pnodeG u);
 
-T crea_albero();
+pnodeG crea_albero(parrG vet_padri);
 
 void visita_preorder_DFS(pnodeG u);

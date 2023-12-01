@@ -1,12 +1,13 @@
 /**
  * @file header.cpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief implementazione metodi e funzioni
- * @version 1.0
- * @date 2023-11-29
+ * @version 1.1
+ * @date 2023-12-01
  */
 #include "header.hpp"
 #include <iostream>
+#include <unordered_map>
 
 int node_childrenSameKey(pnodeG u) {
   int ris = 0;
@@ -68,26 +69,51 @@ void visita_post_order(pnodeG u) {
   }
 }
 
-T crea_albero() {
-  T t = new tree();
+pnodeG crea_albero(parrG vet_padri) {
+  // numero di nodi
+  int n = vet_padri->info.size();
+  // crea una mappa vuota
+  std::unordered_map<int, pnodeG> map;
+  // crea un nuovo nodo per ogni info del padre e la mette nella mappa
+  for (int i = 0; i < n; i++) {
+    map[i] = new node(vet_padri->info.at(i));
+  }
+  // radice
+  pnodeG root = nullptr;
 
-  pnodeG k = new node(4);
+  // figlio sinistro
+  pnodeG left_child = nullptr;
+  // ultimo fratello
+  pnodeG last_sib = nullptr;
 
-  pnodeG j = new node(-7);
-  pnodeG i = new node(7, nullptr, j);
+  for (int i = 0; i < n; i++) {
 
-  pnodeG h = new node(6, i, nullptr);
-  pnodeG g = new node(5, k, h);
+    // indice del padre
+    int index_parent = vet_padri->parent.at(i);
+    // nodo corrente
+    pnodeG nuovo = map.at(i);
 
-  pnodeG f = new node(4);
-  pnodeG e = new node(3, nullptr, f);
+    // radice!
+    if (index_parent == -1) {
+      root = nuovo;
+    } else {
+      // prende il padre del nodo corrente, tramite la mappa
+      pnodeG padre = map[index_parent];
+      bool is_lfc = vet_padri->is_left_child.at(i);
 
-  pnodeG d = new node(1, g, nullptr);
-  pnodeG c = new node(1, nullptr, d);
-  pnodeG b = new node(1, e, c);
-
-  pnodeG a = new node(2, b, nullptr);
-
-  t->root = a;
-  return t;
+      // se è un left child
+      if (is_lfc) {
+        // attacco il left child al padre e me lo salvo come last sibling
+        left_child = nuovo;
+        last_sib = left_child;
+        padre->left_child = left_child;
+      } else {
+        // altrimenti se è un fratello attacco il nuovo nodo all'ultimo fratello
+        // e mando avanti last sib dato che ne ho aggiunto uno
+        last_sib->right_sibling = nuovo;
+        last_sib = nuovo;
+      }
+    }
+  }
+  return root;
 }

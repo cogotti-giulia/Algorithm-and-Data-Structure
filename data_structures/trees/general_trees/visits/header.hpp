@@ -1,18 +1,13 @@
 /**
  * @file header.hpp
- * @author me, myself and I
+ * @author cogotti-giulia
  * @brief definizione metodi e funzioni
- * @version 1.0
- * @date 2023-11-08
+ * @version 1.1
+ * @date 2023-12-01
  */
 #include "structs_used.hpp"
 
-/**
- * @brief restituisce l'albero creato
- *
- * @return albero generale
- */
-T crea_albero_lc_rsib();
+pnodeG crea_albero(parrG vet_padri);
 
 /**
  * @brief visita il nodo, poi fa le chiamate ricorsive ai figli SX e DX
