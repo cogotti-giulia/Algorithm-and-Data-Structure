@@ -28,8 +28,8 @@ struct vector_parent {
   std::vector<char> info; 
   std::vector<bool> is_left_child;
 
-  vector_parent(std::vector<int> p, std::vector<char> i,
-                std::vector<bool> is_lfc)
+  vector_parent(const std::vector<int> &p, const std::vector<char> &i,
+                const std::vector<bool> &is_lfc)
       : parent{p}, info{i}, is_left_child{is_lfc} {};
 };
 typedef vector_parent *parrG;

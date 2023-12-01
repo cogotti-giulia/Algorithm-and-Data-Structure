@@ -30,8 +30,8 @@ struct vector_parent {
   std::vector<std::string> info;
   std::vector<char> child_position;
 
-  vector_parent(std::vector<int> p, std::vector<std::string> i,
-                std::vector<char> c_posi)
+  vector_parent(const std::vector<int> &p, const std::vector<std::string> &i,
+                const std::vector<char> &c_posi)
       : parent{p}, info{i}, child_position{c_posi} {};
 };
 typedef vector_parent *parr;

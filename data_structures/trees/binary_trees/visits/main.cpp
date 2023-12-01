@@ -5,25 +5,22 @@
  * collegate con puntatori ai figli left e right e campo key
  * @version 1.1
  * @date 2023-11-23
- *
- * @copyright Copyright (c) 2023
- *
  */
 #include "header.cpp"
 #include <iostream>
 
 int main() {
 
-  char info[6] = {'A', 'L', 'B', 'E', 'R', 'O'};
-  char child_posi[6] = {'x', 'l', 'r', 'l', 'r', 'r'};
-  int parent[6] = {-1, 0, 0, 1, 1, 2};
+  std::vector<char> info = {'A', 'L', 'B', 'E', 'R', 'O'};
+  std::vector<int> parent = {-1, 0, 0, 1, 1, 2};
+  std::vector<char> child_posi = {'x', 'l', 'r', 'l', 'r', 'r'};
 
-  parr vvv = new vector_parent(parent, info, child_posi, 6);
+  parr vet_parent = new vector_parent(parent, info, child_posi);
 
   T t = new tree();
-  t->root = crea_albero(vvv);
+  t->root = crea_albero(vet_parent);
 
-  std::cout << "*** LEFT and RIGHT IMPLEMENTATION ***" << std::endl;
+
   std::cout << "pre order (DFS):\t\t";
   visita_preorder_DFS(t->root);
   std::cout << std::endl;
@@ -51,17 +48,20 @@ int main() {
    *     e   f
    * 
    */
+  info.clear();
+  parent.clear();
+  child_posi.clear();
 
-  char info_1[10] = {'a', 'b', 'h', 'c', 'g', 'i', 'd', 'l', 'e', 'f'};
-  char child_posi_1[10] = {'x', 'l', 'r', 'l', 'r', 'r', 'r', 'l', 'l', 'r'};
-  int parent_1[10] = {-1, 0, 0, 1, 1, 2, 3, 5, 6, 6};
+  info = {'a', 'b', 'h', 'c', 'g', 'i', 'd', 'l', 'e', 'f'};
+  child_posi = {'x', 'l', 'r', 'l', 'r', 'r', 'r', 'l', 'l', 'r'};
+  parent = {-1, 0, 0, 1, 1, 2, 3, 5, 6, 6};
 
-  parr vvv_1 = new vector_parent(parent_1, info_1, child_posi_1, 10);
+  
+  parr vet_parent_ = new vector_parent(parent, info, child_posi);
 
   T t1 = new tree();
-  t1->root = crea_albero(vvv_1);
+  t1->root = crea_albero(vet_parent_);
 
-  std::cout << "*** LEFT and RIGHT IMPLEMENTATION ***" << std::endl;
   std::cout << "pre order (DFS):\t\t";
   visita_preorder_DFS(t1->root);
   std::cout << std::endl;

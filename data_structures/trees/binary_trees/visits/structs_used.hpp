@@ -7,6 +7,7 @@
  */
 
 // realizzazione tramite strutture collegate: puntatore a left e right
+#include <vector>
 struct node {
   // node *p; //puntatore al padre
   node *left;  // puntatore al figlio sinistro
@@ -14,7 +15,8 @@ struct node {
   char key;    // contenuto informativo nodo
 
   // costruttore
-  node(char k, node *sx=nullptr, node *dx=nullptr) : key{k}, left{nullptr}, right{nullptr} {}
+  node(char k, node *sx = nullptr, node *dx = nullptr)
+      : key{k}, left{nullptr}, right{nullptr} {}
 };
 typedef node *pnode;
 
@@ -29,13 +31,14 @@ typedef tree *T;
  * @brief struttura per rappresentare il vettore dei padri!
  *
  */
-struct vector_parent {
-  int *parent;
-  char *info;
-  char *child_position;
-  int size;
 
-  vector_parent(int *p, char *i, char *c_posi, int s)
-      : parent{p}, info{i}, child_position{c_posi}, size{s} {};
+struct vector_parent {
+  std::vector<int> parent;
+  std::vector<char> info;
+  std::vector<char> child_position;
+
+  vector_parent(const std::vector<int> &p, const std::vector<char> &i,
+                const std::vector<char> &c_posi)
+      : parent{p}, info{i}, child_position{c_posi} {};
 };
 typedef vector_parent *parr;
