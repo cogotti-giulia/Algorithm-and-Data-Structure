@@ -1,9 +1,10 @@
-## Esercizio
+## Prima prova intermedia 28/01/2015 (esercizio I)
 
-Un albero binario è detto intermedio se la somma delle chiavi contenuta nei nodi del
-sotto albero di cui u è radice, è uguale alla somma delle chiavi contenute nei nodi sul
-percorso che collega u alla radice dell'albero (u escluso).
-Scrivere una funzione efficiente che calcoli il numero di nodi intermedi e calcolarne la complessità.
+Un nodo di un albero binario u è detto intermedio se la somma delle chiavi contenute nei nodi del sottoalbero di cui u è radice è uguale alla somma delle chiavi contenute nei nodi sul percorso che collega u alla radice dell’albero (u escluso).
+
+- Scrivere una funzione efficiente in C che restituisca il numero di nodi intermedi.
+- Analizzare la complessità della soluzione trovata, indicando la corrispondente relazione di ricorrenza.
+
 
 ```
         17 (root)

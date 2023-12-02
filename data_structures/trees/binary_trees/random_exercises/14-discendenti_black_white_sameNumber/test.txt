@@ -1,0 +1,3 @@
+i:black white white black white black white white black white
+p:-1 0 0 1 1 2 3 5 5 8
+c:z l r l r l r l r l

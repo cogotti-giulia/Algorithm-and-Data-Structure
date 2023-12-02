@@ -6,6 +6,8 @@
  * @date 2023-11-29
  */
 #include "structs_used.hpp"
+#include <string>
+#include <vector>
 
 pnode crea_albero(parr vet_padri);
 
@@ -22,9 +24,11 @@ int intermedi(pnode r);
  *
  * @param u nodo
  * @param sumPercorso somma sul percorso che va dalla radice al nodo u
- * @param sumKeys somma delle chiavi del sotto albero
+ * @param sumKeysSubtree somma delle chiavi del sotto albero
  * @return numero di nodi intermedi nell'albero
  */
-int intermedi_AUX(pnode u, int sumPercorso, int *sumKeys);
+int intermedi_aux(pnode u, int sumPercorso, int *sumKeysSubtree);
 
 void visita_in_ampiezza_BFS(pnode u);
+
+std::vector<T> get_trees_from_file(std::string file_name);

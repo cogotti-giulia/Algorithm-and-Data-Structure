@@ -1,84 +1,32 @@
-/**
- * @file header.cpp
- * @author cogotti-giulia (cogotti.giulia.irl@gmail.com)
- * @brief implementazione metodi e funzioni
- * @version 1.0
- * @date 2023-11-29
- */
+# Altre cose importanti
 
-#include "header.hpp"
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include <unordered_map>
+## File di test
 
+I file dai quali vengono presi i casi di testi sono formattati nel seguente modo
 
-void stampaK_nodeSX_mag_nodeDX(pnode u) { 
-  stampaK_nodeSX_mag_nodeDX_AUX(u); 
-}
+```txt
+i:2 3 2 -1 0 7
+p:-1 0 0 1 1 2
+c:z l r l r r
+```
 
-int stampaK_nodeSX_mag_nodeDX_AUX(pnode u) {
-  if (u == nullptr)
-    return 0;
-  else {
-    int totSX, totDX;
-    totSX = stampaK_nodeSX_mag_nodeDX_AUX(u->left);
-    totDX = stampaK_nodeSX_mag_nodeDX_AUX(u->right);
+Gli alberi sono descritti in tre righe (campi del [vettore dei padri](strutture_dati.md)), il primo carattere di ogni riga identifica cosa conterrà l'array
 
-    if (totSX > totDX)
-      std::cout << u->key << " ";
+- i : info, contenuto informativo del nodo (visita a livelli)
+- p : parent, padre del nodo (-1 radice)
+- c : child_position, posizione del nodo rispetto al padre (z radice, l left ed r right)
 
-    int tot = totSX + totDX + 1;
-    return tot;
-  }
-}
+i due punti (':") separano questa lettera dai valori effettivi contenuti nell'array.
 
-pnode crea_albero(parr vet_padri) {
-  // numero di nodi
-  int n = vet_padri->info.size();
-  // crea una mappa vuota
-  std::unordered_map<int, pnode> map;
-  // crea un nuovo nodo per ogni info del padre e la mette nella mappa
-  for (int i = 0; i < n; i++) {
-    map[i] = new node(vet_padri->info.at(i));
-  }
-  // radice
-  pnode root = nullptr;
-  // scorre tutte le celle
-  for (int i = 0; i < n; i++) {
-    // indice del padre
-    int index_parent = vet_padri->parent.at(i);
-    // nodo corrente
-    pnode nuovo = map.at(i);
-    // posizione del nodo corrente ('l': figlio sinistro, 'r': figlio destro,
-    // 'z': radice)
-    char child_posi = vet_padri->child_position.at(i);
+Ogni elemento dell'array è separato da uno spazio.
 
-    // se è -1 allora è la radice
-    if (index_parent == -1) {
-      root = nuovo;
-    } else {
-      // prende il padre del nodo corrente, tramite la mappa
-      pnode padre = map[index_parent];
+### Codice c++
 
-      // se è 'l' lo attacca come figlio sinistro
-      if (child_posi == 'l')
-        padre->left = nuovo;
-      else if (child_posi == 'r') // altrimenti come figlio destro
-        padre->right = nuovo;
-    }
-  }
-  return root;
-}
+Assumendo che il file sia formattato nel modo corretto, legge il file riga per riga, crea i vettori parent info e child position per ogni albero presente e a partire da essi crea un vettore di parent e lo aggiunge all'array che li contiene tutti.
 
-void pre_order(pnode u) {
-  if (u != nullptr) {
-    std::cout << u->key << " ";
-    pre_order(u->left);
-    pre_order(u->right);
-  }
-}
+Come finisce di leggere il file, scorre il vettore dei parent e crea un albero per ciascuno di essi, conservandolo in un array che verrà restituito al chiamante.
 
+```c++
 std::vector<T> get_trees_from_file(std::string file_name) {
   std::vector<parr> v_parent;
   std::vector<T> v_tree;
@@ -157,3 +105,4 @@ std::vector<T> get_trees_from_file(std::string file_name) {
 
   return v_tree;
 }
+```

@@ -2,11 +2,13 @@
  * @file header.cpp
  * @author cogotti-giulia (cogotti.giulia.irl@gmail.com)
  * @brief implementazione metodi e funzioni
- * @version 1.0
- * @date 2023-11-30
+ * @version 1.1
+ * @date 2023-12-02
  */
 #include "header.hpp"
+#include <fstream>
 #include <iostream>
+#include <sstream>
 #include <unordered_map>
 
 int discendenti_bw_sameNum(pnode u) {
@@ -89,4 +91,67 @@ pnode crea_albero(parr vet_padri) {
     }
   }
   return root;
+}
+
+std::vector<T> get_trees_from_file(std::string file_name) {
+  std::vector<parr> v_parent;
+  std::vector<T> v_tree;
+
+  std::ifstream my_file(file_name);
+  std::string line;
+
+  if (my_file.is_open()) {
+    while (!my_file.eof()) {
+      std::vector<std::string> info;
+      std::vector<int> parent;
+      std::vector<char> child_posi;
+      for (int i = 0; i < 3; i++) {
+        if (getline(my_file, line)) {
+
+          std::string delimiter = ":";
+          std::string type = line.substr(0, line.find(delimiter));
+          line.erase(0, 2);
+
+          std::stringstream ss(line);
+
+          switch (type.at(0)) {
+          case 'i': {
+            std::string tmp;
+            while (ss >> tmp)
+              info.push_back(tmp);
+          } break;
+          case 'p': {
+            int tmp;
+            while (ss >> tmp)
+              parent.push_back(tmp);
+          } break;
+          case 'c': {
+            char tmp;
+            while (ss >> tmp)
+              child_posi.push_back(tmp);
+          } break;
+          default: {
+            throw "Ooops, something went wrong! (check your file, maybe you "
+                  "write something wrong)";
+          }
+          }
+        } else {
+          throw "Ooops, something went wrong! (check your file, maybe you "
+                "write something wrong)";
+        }
+      }
+      v_parent.push_back(new vector_parent(parent, info, child_posi));
+    }
+    my_file.close();
+  } else {
+    throw "Error: cannot open the file!";
+  }
+
+  for (int i = 0; i < v_parent.size(); i++) {
+    T t = new tree();
+    t->root = crea_albero(v_parent.at(i));
+    v_tree.push_back(t);
+  }
+
+  return v_tree;
 }

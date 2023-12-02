@@ -2,25 +2,23 @@
  * @file main.cpp
  * @author cogotti-giulia (cogotti.giulia.irl@gmail.com)
  * @brief test
- * @version 1.0
- * @date 2023-11-30
+ * @version 1.1
+ * @date 2023-12-02
  */
 #include "header.cpp"
 #include <string>
+#include <vector>
 
 int main() {
-  std::vector<std::string> info = {"black", "white", "white", "black", "white",
-                                   "black", "white", "white", "black", "white"};
-  std::vector<int> parent = {-1, 0, 0, 1, 1, 2, 3, 5, 5, 8};
-  std::vector<char> child_posi = {'z', 'l', 'r', 'l', 'r', 'l', 'r', 'l', 'r', 'l'};
-  parr vet_parent = new vector_parent(parent, info, child_posi);
 
-  T t = new tree();
-  t->root = crea_albero(vet_parent);
+  std::vector<T> v_tree = get_trees_from_file("test.txt");
 
-  std::cout<<"post order visit"<<std::endl;
-  post_order(t->root);
-  std::cout<<std::endl;
+  for (int i = 0; i < v_tree.size(); i++) {
+    pnode root = v_tree.at(i)->root;
+    std::cout << "post order visit" << std::endl;
+    post_order(root);
+    std::cout << std::endl;
 
-  std::cout<<"Numero nodi: "<<discendenti_bw_sameNum(t->root);
+    std::cout << "Numero nodi: " << discendenti_bw_sameNum(root);
+  }
 }
