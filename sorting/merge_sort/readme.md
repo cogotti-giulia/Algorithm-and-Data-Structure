@@ -183,34 +183,28 @@ void my_merge(my_elem *arr, int p, int q, int r) {
   int i = 0;
   int j = 0;
   int k = p;
-
-  // finché ho elementi nei sottoarray
-  while (i < n1 && j < n2) {
-    // prende il più piccolo elemento tra i due sottoarray e lo mette nella
-    // giusta posizione di A
-    if (left[i]->get_key() <= right[j]->get_key()) {
+  
+  while (k < r) { //! r-p+1 volte ~> n volte
+    if (i < n1 && j < n2) {
+      // prende il più piccolo elemento tra i due sottoarray e lo mette nella
+      // giusta posizione di A
+      if (left[i]->get_key() <= right[j]->get_key()) {
+        arr[k] = left[i];
+        i++;
+      } else {
+        arr[k] = right[j];
+        j++;
+      }
+    } else if (i < n1) {
+      // ho finito gli elementi in R, finisco di aggiungere quelli di L
       arr[k] = left[i];
       i++;
     } else {
+      // ho finito gli elementi in L, finisco di aggiungere quelli di R
       arr[k] = right[j];
       j++;
     }
     k++;
-  }
-
-  // quando esco dal ciclo while ho finito gli elementi in L oppure in R
-  // se uno dei due non è finito, finisco di aggiungere i suoi elementi ad A
-
-  while (i < n1) {
-    arr[k] = left[i];
-    k++;
-    i++;
-  }
-
-  while (j < n2) {
-    arr[k] = right[j];
-    k++;
-    j++;
   }
 }
 ```

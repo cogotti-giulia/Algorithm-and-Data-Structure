@@ -6,7 +6,6 @@
  * @date 2023-11-15
  */
 #include "header.cpp"
-#include <cmath>
 
 int main() {
 
