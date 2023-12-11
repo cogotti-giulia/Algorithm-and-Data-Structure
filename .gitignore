@@ -58,3 +58,4 @@ data_structures/arrays/random_exercises/7-conta_non_negativi/main
 data_structures/arrays/random_exercises/8-esistono_duplicati/readme.md
 data_structures/trees/binary_trees/random_exercises/20-check_proprieta_max_heap/main
 data_structures/trees/binary_trees/random_exercises/21-build_tr_balanced_from_array/main
+data_structures/trees/binary_trees/binary_search_trees/exercises/07-BST_with_sum/main
