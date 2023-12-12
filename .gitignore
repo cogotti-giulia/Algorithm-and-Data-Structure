@@ -60,3 +60,4 @@ data_structures/trees/binary_trees/random_exercises/20-check_proprieta_max_heap/
 data_structures/trees/binary_trees/random_exercises/21-build_tr_balanced_from_array/main
 data_structures/trees/binary_trees/binary_search_trees/exercises/07-BST_with_sum/main
 data_structures/trees/binary_trees/binary_search_trees/exercises/08-BST_with_diff/main
+data_structures/trees/binary_trees/binary_search_trees/exercises/09-buildNewTree_fromT1_T2/main
