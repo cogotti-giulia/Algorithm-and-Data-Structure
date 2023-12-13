@@ -61,3 +61,4 @@ data_structures/trees/binary_trees/random_exercises/21-build_tr_balanced_from_ar
 data_structures/trees/binary_trees/binary_search_trees/exercises/07-BST_with_sum/main
 data_structures/trees/binary_trees/binary_search_trees/exercises/08-BST_with_diff/main
 data_structures/trees/binary_trees/binary_search_trees/exercises/09-buildNewTree_fromT1_T2/main
+data_structures/trees/binary_trees/binary_search_trees/exercises/10-crea_BST_interval_root_k/main
