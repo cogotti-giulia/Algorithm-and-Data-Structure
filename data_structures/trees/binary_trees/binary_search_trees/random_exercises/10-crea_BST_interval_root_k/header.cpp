@@ -1,4 +1,13 @@
-
+/**
+ * @file header.cpp
+ * @author cogotti-giulia (cogotti.giulia.irl@gmail.com)
+ * @brief implementazione metodi e funzioni
+ * @version 1.0
+ * @date 2023-12-18
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "header.hpp"
 #include <cmath>
 #include <iostream>
@@ -48,7 +57,7 @@ T crea_BST_interval_BALANCED(T t, int k) {
   return new_tree;
 }
 
-pnode build_BST_OTT_RIC(std::vector<int> A, int inf, int sup, pnode padre) {
+pnode build_BST_OTT_RIC(const std::vector<int>& A, int inf, int sup, pnode padre) {
   if (inf > sup)
     return nullptr;
   else {

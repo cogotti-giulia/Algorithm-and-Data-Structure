@@ -6,7 +6,6 @@
  * @date 2023-11-07
  */
 #include <cmath>
-#include <iostream>
 
 using namespace std;
 
@@ -103,4 +102,5 @@ int compute(int n) {
     else
       return n;
   }
+  return 0;
 }

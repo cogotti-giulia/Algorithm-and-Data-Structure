@@ -1,4 +1,13 @@
-
+/**
+ * @file header.hpp
+ * @author cogotti-giulia (cogotti.giulia.irl@gmail.com)
+ * @brief definizione metodi e funzioni utilizzate
+ * @version 1.0
+ * @date 2023-12-18
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "structs_used.hpp"
 #include <vector>
 
@@ -32,4 +41,4 @@ pnode tree_minimum(pnode x);
 
 void tree_insert(T tree, pnode z);
 
-pnode build_BST_OTT_RIC(std::vector<int> A, int inf, int sup, pnode padre);
+pnode build_BST_OTT_RIC(const std::vector<int>& A, int inf, int sup, pnode padre);

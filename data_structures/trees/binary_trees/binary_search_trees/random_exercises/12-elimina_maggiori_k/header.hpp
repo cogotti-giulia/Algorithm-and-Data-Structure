@@ -21,5 +21,5 @@ void tree_delete(T t, pnode z);
 
 void reverse_in_order(T t, int k);
 
-T build_BST_OTT(std::vector<int> A);
-pnode build_BST_OTT_AUX(std::vector<int> A, int p, int r, pnode padre);
+T build_BST_OTT(const std::vector<int>& A);
+pnode build_BST_OTT_AUX(const std::vector<int>& A, int p, int r, pnode padre);

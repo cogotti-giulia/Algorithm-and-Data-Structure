@@ -8,7 +8,6 @@
 #include "header.hpp"
 #include <cmath>
 #include <iostream>
-#include <queue>
 
 //! T(n) = O(h) dove h rappresenta l'altezza dell'albero
 //! si segue un cammino che scende dalla radice a una foglia lungo al più h

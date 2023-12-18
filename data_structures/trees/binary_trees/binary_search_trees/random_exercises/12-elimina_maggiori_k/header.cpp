@@ -89,13 +89,13 @@ void tree_delete(T t, pnode z) {
   }
 }
 
-T build_BST_OTT(std::vector<int> A) {
+T build_BST_OTT(const std::vector<int>& A) {
   T t = new tree();
   t->root = build_BST_OTT_AUX(A, 0, A.size() - 1, nullptr);
   return t;
 }
 
-pnode build_BST_OTT_AUX(std::vector<int> A, int p, int r, pnode padre) {
+pnode build_BST_OTT_AUX(const std::vector<int>& A, int p, int r, pnode padre) {
   if (p > r)
     return nullptr;
   else {

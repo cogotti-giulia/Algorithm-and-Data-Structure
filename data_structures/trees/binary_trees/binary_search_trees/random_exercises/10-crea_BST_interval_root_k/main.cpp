@@ -1,4 +1,13 @@
-
+/**
+ * @file main.cpp
+ * @author cogotti-giulia (cogotti.giulia.irl@gmail.com)
+ * @brief test
+ * @version 1.0
+ * @date 2023-12-18
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #include "header.cpp"
 #include <vector>
 
@@ -12,21 +21,20 @@ int main() {
 
   std::cout << "OLD: ";
   visita_simmetrica(t);
-  std::cout << "ROOT: " << t->root->key<<std::endl<<std::endl;
+  std::cout << "ROOT: " << t->root->key << std::endl << std::endl;
 
   int k = 17;
-  std::cout << "k =  " << k<<std::endl<<std::endl;
+  std::cout << "k =  " << k << std::endl << std::endl;
 
   T nuovo = crea_BST_interval(t, k);
 
   std::cout << "NEW: ";
   visita_simmetrica(nuovo);
-  std::cout << "ROOT: " << nuovo->root->key<<std::endl<<std::endl;
-
+  std::cout << "ROOT: " << nuovo->root->key << std::endl << std::endl;
 
   T nuovo_BAL = crea_BST_interval_BALANCED(t, k);
 
   std::cout << "NEW BALANCED: ";
   visita_simmetrica(nuovo_BAL);
-  std::cout << "ROOT: " << nuovo_BAL->root->key<<std::endl;
+  std::cout << "ROOT: " << nuovo_BAL->root->key << std::endl;
 }
