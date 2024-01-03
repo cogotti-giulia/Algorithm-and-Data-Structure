@@ -16,13 +16,13 @@
 #include <unordered_map>
 
 int altezza_nodi(pnode r, int k) {
-  int h = 0;
+  int h = -1;
   return altezza_nodi_AUX(r, k, &h);
 }
 
 int altezza_nodi_AUX(pnode u, int k, int *h) {
   if (u == nullptr) {
-    *h = 0;
+    *h = -1;
     return 0;
   } else {
     int hSX, hDX;
@@ -30,12 +30,10 @@ int altezza_nodi_AUX(pnode u, int k, int *h) {
 
     risSX = altezza_nodi_AUX(u->left, k, &hSX);
     risDX = altezza_nodi_AUX(u->right, k, &hDX);
-
-    int max = std::max(hSX, hDX);
-
+    
     *h = std::max(hSX, hDX) + 1;
 
-    if (max == k)
+    if (*h == k)
       return risSX + risDX + 1;
     else
       return risSX + risDX;
