@@ -7,3 +7,9 @@ c:z l r l r l
 i:
 p:
 c:
+i:2 3 5 -3
+p:-1 0 1 1
+c:z l l r
+i:17 17 0 7 9 1
+p:-1 0 0 2 2 3
+c:z l r l r l

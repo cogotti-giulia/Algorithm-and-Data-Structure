@@ -55,31 +55,33 @@ intermedi_AUX(u, sumPercorso)
 ```
 
 ```c++
-int intermedi(pnode r){
-    int sumKeys = 0; //somma chiavi sotto albero
-    return intermedi_AUX(r, 0, &sumKeys);
+
+int intermedi(pnode r) {
+  int sumKeys = 0; // somma chiavi sotto albero
+  return intermedi_aux(r, 0, &sumKeys);
 }
 
-int intermedi_AUX(pnode u, int sumPercorso, int *sumKeys){
-    if(u == nullptr){
-        *sumKeys = 0;
-        return 0;
-    }else{
-        int sumKeysSX = *sumKeys;
-        int risSX = intermedi_AUX(u->left, sumPercorso + u->key, &sumKeysSX);
+//! T(n) = T(k)+T(n-k-1)+d = ... = Teta(n)
+int intermedi_aux(pnode u, int sumPercorso, int *sumKeysSubtree) {
+  if (u == nullptr) {
+    *sumKeysSubtree = 0;
+    return 0;
+  } else {
+    int sum_keys_sx, sum_keys_dx;
 
-        int sumKeysDX = *sumKeys;
-        int risDX = intermedi_AUX(u->right, sumPercorso + u->key, &sumKeysDX);
+    int risSX = intermedi_aux(u->left, sumPercorso + u->key, &sum_keys_sx);
+    int risDX = intermedi_aux(u->right, sumPercorso + u->key, &sum_keys_dx);
 
-        int sum = sumKeysDX+sumKeysSX+u->key;
-        if(sum == sumPercorso){
-            *sumKeys = sum;
-            return risSX + risDX +1;
-        }else{
-            *sumKeys = sum;
-            return risSX + risDX;
-        }
+    int sum = sum_keys_dx + sum_keys_sx + u->key;
+
+    *sumKeysSubtree = sum;
+
+    if (sum == sumPercorso) {
+      return risSX + risDX + 1;
+    } else {
+      return risSX + risDX;
     }
+  }
 }
 ```
 
