@@ -6,8 +6,9 @@
  * @date 2023-11-26
  */
 #include "header.hpp"
-#include <cstdlib>
+#include <fstream>
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 bool esattamente_k_volte(std::vector<int> *A, int k) {
@@ -22,7 +23,8 @@ bool esattamente_k_volte(std::vector<int> *A, int k) {
     int elem = A->at(0);
     int i = 1;
 
-    while (i <= A->size() - k && !found) { //! al più O(n)
+
+    while (i < A->size() && !found) { //! al più O(n)
 
       if (A->at(i) != elem) {
         elem = A->at(i);
@@ -119,4 +121,35 @@ void stampa_array(std::vector<int> A) {
     std::cout << A.at(i) << " ";
 
   std::cout << std::endl;
+}
+
+
+
+std::vector<std::vector<int>> get_arrays_from_file(std::string file_name, std::vector<int>& K) {
+  std::string line;
+
+  std::vector<std::vector<int>> arrays;
+
+  std::ifstream my_file(file_name);
+  if (my_file.is_open()) {
+    while (!my_file.eof()) {
+      std::vector<int> arr;
+
+      if (getline(my_file, line)) {
+        std::stringstream ss(line);
+        int n;
+
+        ss >>n;
+        K.push_back(n);
+        
+        while (ss >> n)
+          arr.push_back(n);
+      }
+      arrays.push_back(arr);
+    }
+
+    my_file.close();
+  }
+
+  return arrays;
 }
