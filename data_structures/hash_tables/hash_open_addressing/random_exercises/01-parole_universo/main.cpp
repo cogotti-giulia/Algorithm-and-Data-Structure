@@ -11,12 +11,8 @@
 #include "header.cpp"
 
 int main() {
-  int m = 5;
-  std::vector<std::string> vet(m);
-  for (int i = 0; i < vet.size(); i++)
-    vet.at(i) = "";
 
-  T tab = new hash_table(m, vet);
+  T tab = new hash_table();
 
   std::vector<std::string> words = {"MARTE",   "LUNA", "COMETA",
                                     "PIANETI", "SOLE", "SOLI"};

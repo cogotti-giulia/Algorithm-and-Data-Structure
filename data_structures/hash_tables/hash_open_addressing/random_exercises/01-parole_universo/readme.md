@@ -25,7 +25,7 @@ int sum_ascii(std::string w) {
   return sum;
 }
 
-int hash1(std::string w) { return sum_ascii(w) % 5; }
+int hash1(std::string w) { return sum_ascii(w) % M; }
 
 int hash_ispezione_lineare(std::string w, int i) {
   int h1_index = hash1(w);
@@ -35,7 +35,7 @@ int hash_ispezione_lineare(std::string w, int i) {
     return h1_index;
   } else {
     std::cout << ">>> ispezione lineare! >>>" << std::endl;
-    int h2_index = (h1_index + i) % 5;
+    int h2_index = (h1_index + i) % M;
     std::cout << "h2(" << w << ", " << i << ") = " << h2_index << std::endl;
     return h2_index;
   }
@@ -73,26 +73,26 @@ Considerando che il calcolo della funzione hash risulta essere costante e sotto 
 ```
 h1(MARTE) = 2
 insert k = MARTE
-0 : 
-1 : 
+0 :
+1 :
 2 : MARTE
-3 : 
-4 : 
+3 :
+4 :
 
 h1(LUNA) = 4
 insert k = LUNA
-0 : 
-1 : 
+0 :
+1 :
 2 : MARTE
-3 : 
+3 :
 4 : LUNA
 
 h1(COMETA) = 1
 insert k = COMETA
-0 : 
+0 :
 1 : COMETA
 2 : MARTE
-3 : 
+3 :
 4 : LUNA
 
 h1(PIANETI) = 2
@@ -100,7 +100,7 @@ insert k = PIANETI
 >>> ispezione lineare! >>>
 h2(PIANETI, 1) = 3
 insert k = PIANETI
-0 : 
+0 :
 1 : COMETA
 2 : MARTE
 3 : PIANETI
@@ -139,4 +139,3 @@ h2(SOLI, 4) = 0
 insert k = SOLI
 terminate called after throwing an instance of 'char const*'
 ```
-

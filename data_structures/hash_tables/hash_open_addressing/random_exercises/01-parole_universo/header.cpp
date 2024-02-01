@@ -19,7 +19,7 @@ int sum_ascii(std::string w) {
   return sum;
 }
 
-int hash1(std::string w) { return sum_ascii(w) % 5; }
+int hash1(std::string w) { return sum_ascii(w) % M; }
 
 int hash_ispezione_lineare(std::string w, int i) {
   int h1_index = hash1(w);
@@ -29,7 +29,7 @@ int hash_ispezione_lineare(std::string w, int i) {
     return h1_index;
   } else {
     std::cout << ">>> ispezione lineare! >>>" << std::endl;
-    int h2_index = (h1_index + i) % 5;
+    int h2_index = (h1_index + i) % M;
     std::cout << "h2(" << w << ", " << i << ") = " << h2_index << std::endl;
     return h2_index;
   }

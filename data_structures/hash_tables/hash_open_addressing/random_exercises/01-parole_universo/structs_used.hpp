@@ -11,12 +11,17 @@
 #include <string>
 #include <vector>
 
+constexpr int M = 5;
+
 struct hash_table {
   std::vector<std::string> tab;
-  int n; // elementi effettivamente memorizzati
-  int m; // dimensione tabella
+  int n = 0; // elementi effettivamente memorizzati
+  int m = M; // dimensione tabella
 
-  hash_table(int m, std::vector<std::string> tab, int n = 0)
-      : tab{tab}, m{m}, n{n} {};
+  hash_table(){
+    for(int i = 0; i < M; i++){
+      tab.push_back("");
+    }
+  };
 };
 typedef hash_table *T;

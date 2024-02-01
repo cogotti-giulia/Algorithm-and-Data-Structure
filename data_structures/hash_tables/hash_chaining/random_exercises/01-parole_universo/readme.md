@@ -17,18 +17,18 @@ SOLI
 
 ```c++
 
-int hash(std::string w) {
-  int s = sum_ascii(w);
-
-  return s % 5;
-}
-
 int sum_ascii(std::string w) {
   int sum = 0;
 
   for (int i = 0; i < w.size(); i++)
     sum += w.at(i);
   return sum;
+}
+
+int hash(std::string w) {
+  int s = sum_ascii(w);
+
+  return s % M;
 }
 
 void insert(T hash_table, E elem) {

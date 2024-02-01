@@ -4,9 +4,9 @@
  * @brief implementazione
  * @version 1.0
  * @date 2024-01-29
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
 #include "header.hpp"
 #include <iostream>
@@ -22,7 +22,7 @@ int sum_ascii(std::string w) {
 int hash(std::string w) {
   int s = sum_ascii(w);
 
-  return s % 5;
+  return s % M;
 }
 
 void insert(T hash_table, E elem) {
@@ -41,7 +41,7 @@ void insert(T hash_table, E elem) {
 }
 
 void print_hash_table(T hash_table) {
-  for (int i = 0; i < hash_table->list.size(); i++) {
+  for (int i = 0; i < hash_table->m; i++) {
     std::cout << i << " : ";
     E scorri = hash_table->list.at(i);
     while (scorri != nullptr) {

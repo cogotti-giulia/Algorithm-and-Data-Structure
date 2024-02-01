@@ -4,12 +4,14 @@
  * @brief strutture dati utilizzate
  * @version 1.0
  * @date 2024-01-29
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
 #include <string>
 #include <vector>
+
+constexpr int M = 5;
 
 // elemento della lista
 struct my_elem {
@@ -25,10 +27,13 @@ typedef my_elem *E;
 // tabella hash
 struct hash_table {
   std::vector<E> list;
-  int n; // elementi effettivamente memorizzati
-  int m; // dimensione tabella
+  int n = 0; // elementi effettivamente memorizzati
+  int m = M; // dimensione tabella
 
-  hash_table(int m, std::vector<E> l, int n = 0) : m{m}, n{n}, list{l} {};
+  hash_table() { 
+    for(int i = 0; i < M; i++)
+      list.push_back(nullptr);
+  };
 };
 
 typedef hash_table *T;
