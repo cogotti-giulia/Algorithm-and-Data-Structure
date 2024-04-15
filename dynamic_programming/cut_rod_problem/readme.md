@@ -86,3 +86,42 @@ All'interno di una tabella (vettore, hash) si salvano le soluzioni dei problemi 
 ### Bottom up (1 -> ... -> n)
 
 Si ordinano i problemi in base alla dimensione e partendo dai più piccoli si risolvono memorizzando le soluzioni ottenute (risolve tutto).
+
+
+## Esempio
+
+```
+n = 7
+
+i    | 0 | 1 | 2 | 3 |  4 |  5 |  6 |  7 | tagli
+p[i] | 0 | 1 | 5 | 8 | 10 | 13 | 17 | 18 | prezzi
+
+```
+
+Risolvendo il problema utilizzando l'approccio che mi consente di ricavare la soluzione (sia [top down](/dynamic_programming/cut_rod_problem/memoized_cutrod/readme.md) che [bottom up](/dynamic_programming/cut_rod_problem/bottomup_cutrod/readme.md)) si ottiene
+
+```
+i    | 0 | 1 | 2 | 3 |  4 |  5 |  6 |  7 | 
+r[i] | 0 | 1 | 5 | 8 | 10 | 13 | 17 | 18 | 
+s[i] | 0 | 1 | 2 | 3 |  2 |  2 |  6 |  1 |
+```
+
+Dove _r_ è il vettore dei guadagni massimi e _s_ è il vettore dei tagli migliori.
+
+La soluzione si ottiene a partire dall'elemento in ultima posizione di _s_ (s[n], taglio ottimale). Si decrementa n del valore contenuto in s[n], fino a quando non si sono trovati tutti i tagli (quando n arriva a zero ci si ferma)
+
+```
+s[n] = 1 taglio ottimale
+n = n - s[n] = 7 - 1 = 6
+
+quindi l'asta viene divisa un due parti, con un taglio che spezza l'asta dopo la posizione 1
+
+ 1    6
+| |      |
+```
+
+sommando poi i valori dei guadagni massimi nelle posizioni appena trovate, si ottiene il guadagno massimo 
+
+```
+r[1] + r[6] = 1 + 17 = 18
+```

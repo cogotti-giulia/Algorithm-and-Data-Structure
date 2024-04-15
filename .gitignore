@@ -85,3 +85,4 @@ data_structures/hash_tables/hash_open_addressing/random_exercises/01-parole_univ
 data_structures/hash_tables/hash_open_addressing/random_exercises/02-doppio_hash_insert/main
 dynamic_programming/cut_rod_problem/cutrod/cutrod
 dynamic_programming/cut_rod_problem/memoized_cutrod/main
+dynamic_programming/cut_rod_problem/bottomup_cutrod/main
