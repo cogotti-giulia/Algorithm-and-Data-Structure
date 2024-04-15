@@ -17,9 +17,9 @@ int cutrod(std::vector<int> p, int n) {
   else {
     int q = -1; // massimo dei prezzi fino ad ora, posso usare -1 dato che so
                 // per certo che tutti i prezzi sono positivi
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i <= n; i++) {
       // std::cout<<i<< " "<<n<<std::endl;
-      q = std::max(q, p.at(i) + cutrod(p, (n - 1) - i));
+      q = std::max(q, p.at(i) + cutrod(p, n - i));
     }
     return q;
   }
@@ -27,9 +27,9 @@ int cutrod(std::vector<int> p, int n) {
 
 int main() {
 
-  int n = 4;
-  std::vector<int> p = {0, 1, 5, 8};
+  int n = 8;
+  std::vector<int> p = {0, 1, 5, 8, 10, 13, 17, 18};
 
-  int r = cutrod(p, n);
+  int r = cutrod(p, n-1);
   std::cout << "ricavo massimo: " << r;
 }
