@@ -88,3 +88,4 @@ dynamic_programming/cut_rod_problem/memoized_cutrod/main
 dynamic_programming/cut_rod_problem/bottomup_cutrod/main
 dynamic_programming/LCS_longest_common_subsequence_problem/bottomup_LCS/main
 dynamic_programming/01-fibonacci/main
+dynamic_programming/02-longest_common_palindrome_substring/main
