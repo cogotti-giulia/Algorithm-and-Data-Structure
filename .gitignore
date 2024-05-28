@@ -93,3 +93,4 @@ dynamic_programming/04-massima_sottosequenza_crescente/main
 dynamic_programming/05-count_ways_134/main
 dynamic_programming/06-fibonacci_modified/main
 sorting/random_exercises/08-counting_sort_ascendin_and_descending_order/main
+dynamic_programming/03-longest_common_palindrome_subsequence/main
