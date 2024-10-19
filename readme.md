@@ -8,6 +8,7 @@ I don't know what I'm doing, I'm just trying to understand something until I pas
 
 ## Useful websites
 - [VISUALGO.net](https://visualgo.net/en)
+- [CLRS solutions](https://walkccc.me/CLRS/)
 
 ## Useful resources
 - Moreno Marzolla, Algorithms and Data Structures Exercises. [[ PDF - ita ]](https://www.moreno.marzolla.name/teaching/esercizi-svolti-algoritmi.pdf). 
